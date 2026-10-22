@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HAILSTONES — The Mind Behind the Code</title>
+<meta name="description" content="Hailstones is a developer whose interests span software development, gaming development and immersive digital experiences.">
+<meta name="theme-color" content="#061126">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HAILSTONES — The Mind Behind the Code">
+<meta property="og:description" content="Not every shadow is empty. Developer portfolio and immersive 3D experience.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HAILSTONES">
+<meta name="twitter:description" content="The Mind Behind the Code.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🩸%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#061126;--bg2:#02050C;--red:#FF233F;--blue:#1769FF;--tx:#F4F6FF;--tx2:#A6B4D1;color-scheme:dark;box-sizing:border-box}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg2);color:var(--tx);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom,0)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+h1,h2,h3{font-family:Impact,"Arial Narrow Bold","Franklin Gothic Medium",sans-serif;letter-spacing:.06em;text-transform:uppercase;line-height:1.05;margin:0}
+.wrap{width:min(1100px,100% - 40px);margin:auto}
+section{padding:84px 0;position:relative}
+section:nth-of-type(even){background:linear-gradient(180deg,var(--bg2),var(--bg) 50%,var(--bg2))}
+h2{font-size:clamp(1.9rem,6.5vw,3.2rem);margin-bottom:12px}
+h2 em{color:var(--red);font-style:normal}
+.lead{color:var(--tx2);max-width:62ch}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0);background:linear-gradient(#02050Cee,#02050C00)}
+.bar{display:flex;align-items:center;justify-content:space-between;width:min(1100px,100% - 32px);margin:auto;height:60px}
+.logo{font:900 1.3rem Impact,sans-serif;letter-spacing:.14em;text-decoration:none}.logo b{color:var(--red)}
+.links{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.links a{display:block;padding:10px 14px;text-decoration:none;color:var(--tx2);text-transform:uppercase;font-size:.8rem;letter-spacing:.14em;border-bottom:2px solid transparent;transition:.25s}
+.links a:hover,.links a:focus-visible{color:var(--tx);border-color:var(--red)}
+#burger{display:none;background:#02050Cd0;border:1px solid var(--blue);color:var(--tx);width:46px;height:46px;border-radius:10px;font-size:1.3rem;cursor:pointer}
+@media(max-width:760px){#burger{display:block}
+.links{position:absolute;top:60px;right:0;left:0;flex-direction:column;background:#02050Cf2;padding:8px 16px 16px;border-bottom:1px solid var(--red);display:none}
+.links.open{display:flex}.links a{padding:16px 8px;font-size:1rem}}
+/* intro */
+#intro{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;text-align:center;transition:opacity .8s}
+#intro.done{opacity:0;pointer-events:none}
+#intro::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,#1769FF33,transparent 55%);animation:glow 3s ease-in}
+#scan{position:absolute;left:0;right:0;height:2px;background:var(--red);box-shadow:0 0 18px var(--red);animation:scan 2.2s linear}
+#intro h1{font-size:clamp(2.2rem,12vw,6rem);opacity:0;animation:show .1s 1.7s forwards}
+#intro p{color:var(--red);letter-spacing:.3em;font-size:clamp(.7rem,3vw,1rem);opacity:0;animation:show .1s 2.3s forwards;margin:10px 0 0}
+#skip{position:absolute;right:max(16px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:2;background:none;color:var(--tx);border:1px solid var(--red);padding:14px 22px;letter-spacing:.2em;font-weight:700;cursor:pointer;min-height:48px}
+@keyframes scan{from{top:0}to{top:100%}}@keyframes glow{from{opacity:0}to{opacity:1}}@keyframes show{to{opacity:1}}
+/* glitch */
+.glitch{position:relative}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;opacity:.7;pointer-events:none}
+.glitch::before{color:var(--red);animation:gl 5s infinite steps(1)}
+.glitch::after{color:var(--blue);animation:gl 5s 1.3s infinite steps(1)}
+@keyframes gl{0%,92%,100%{transform:none;clip-path:inset(0 0 100% 0)}93%{transform:translate(-4px,1px);clip-path:inset(20% 0 55% 0)}96%{transform:translate(4px,-1px);clip-path:inset(60% 0 10% 0)}}
+/* hero */
+#home{min-height:100svh;padding:0;display:flex;align-items:flex-end;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#0c2150,var(--bg2) 70%)}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+#fb{position:absolute;inset:0;display:none;background:radial-gradient(circle at 50% 36%,#FF233F22,transparent 40%)}
+#fb i{position:absolute;top:30%;width:14px;height:14px;border-radius:50%;background:var(--red);box-shadow:0 0 26px 8px var(--red);animation:blink 4s infinite}
+#fb i:first-child{left:calc(50% - 50px)}#fb i:last-child{left:calc(50% + 36px)}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+.nogl #fb{display:block}.nogl #gl{display:none}
+.vig{position:absolute;inset:0;background:linear-gradient(transparent 38%,#02050Cf0 92%),radial-gradient(transparent 50%,#000a 100%);pointer-events:none}
+.hero{position:relative;z-index:2;padding:0 0 calc(40px + env(safe-area-inset-bottom,0))}
+.hero h1{font-size:clamp(2.8rem,15vw,8rem);text-shadow:0 0 40px #FF233F66}
+.hero .sub{color:var(--red);letter-spacing:.32em;font-size:clamp(.72rem,3.2vw,1.1rem);font-weight:700;margin:6px 0 14px}
+.hero p.bio{color:var(--tx2);max-width:60ch;font-size:clamp(.9rem,3.6vw,1.05rem);margin:0 0 22px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 24px;text-decoration:none;font-weight:700;letter-spacing:.14em;font-size:.82rem;text-transform:uppercase;background:linear-gradient(90deg,var(--red),#a3112a);color:#fff;border:0;border-radius:4px;transition:.3s;-webkit-tap-highlight-color:transparent}
+.btn.alt{background:#02050Cb0;border:1px solid var(--blue)}
+.btn:hover,.btn:active{background:linear-gradient(90deg,var(--blue),var(--red));transform:translateY(-2px);box-shadow:0 8px 28px #1769FF55}
+@media(max-width:480px){.btn{width:100%}}
+/* cards */
+.grid{display:grid;gap:18px;margin-top:34px;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr))}
+.card{position:relative;background:linear-gradient(160deg,#0a1a3acc,#02050Ce6);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:8px;transition:transform .2s;transform-style:preserve-3d;backdrop-filter:blur(6px)}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(120deg,var(--red),var(--blue),var(--red)) 0 0/300% 100%;animation:bd 6s linear infinite;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+@keyframes bd{to{background-position:300% 0}}
+.card svg{width:38px;height:38px;fill:var(--tx)}
+.card h3{font-size:1.25rem}.card .tag{color:var(--red);font-size:.72rem;letter-spacing:.2em;font-weight:700}
+.card p{margin:0;color:var(--tx2);font-size:.92rem;overflow-wrap:anywhere}
+.card .btn{margin-top:auto;align-self:stretch}
+.card:active{transform:scale(.98)}
+.badge{display:inline-block;border:1px solid var(--red);color:var(--red);padding:4px 12px;font-size:.75rem;letter-spacing:.22em;font-weight:700;margin-bottom:14px}
+.badge::before{content:"● ";animation:blink 2s infinite}
+.proj{margin-top:30px;padding:clamp(24px,5vw,48px);background:linear-gradient(135deg,#0a1f4a,#02050C)}
+.proj h3{font-size:clamp(2rem,8vw,3.6rem);margin-bottom:10px}
+.proj p{color:var(--tx2);max-width:56ch}
+.mail{font-size:clamp(1rem,4.5vw,1.4rem);overflow-wrap:anywhere;margin:18px 0}
+footer{text-align:center;padding:30px 16px calc(30px + env(safe-area-inset-bottom,0));color:var(--tx2);font-size:.8rem;border-top:1px solid #1769FF33}
+#fx{position:fixed;left:12px;bottom:calc(12px + env(safe-area-inset-bottom,0));z-index:40;background:#02050Cd0;color:var(--tx2);border:1px solid #1769FF66;padding:10px 14px;font-size:.72rem;letter-spacing:.1em;cursor:pointer;border-radius:6px;min-height:44px}
+.calm .glitch::before,.calm .glitch::after,.calm .card::before{animation:none}
+.calm *{scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+#ph{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;object-position:62% 14%;filter:contrast(1.12) brightness(.9);transform:translate(calc(var(--px,0)*-14px),calc(var(--py,0)*-9px)) scale(1.03);transition:transform .2s ease-out;animation:flick 7s infinite steps(1)}
+#tint{position:absolute;inset:0;background:radial-gradient(circle at 15% 85%,#FF233F99,transparent 55%),linear-gradient(#0a2a70,#0a2a70);mix-blend-mode:color;opacity:.8;pointer-events:none}
+.nogl #fb{display:none}
+@keyframes flick{0%,95%,100%{opacity:1}96%{opacity:.82}97%{opacity:1}98%{opacity:.7}}
+@media(max-width:760px){#ph{object-position:64% 10%}}
+</style>
+</head>
+<body>
+<div id="intro" role="dialog" aria-label="Introduction">
+  <div id="scan"></div>
+  <div><h1 class="glitch" data-text="HAILSTONES">HAILSTONES</h1><p>NOT EVERY SHADOW IS EMPTY.</p></div>
+  <button id="skip" type="button">SKIP INTRO</button>
+</div>
+
+<nav aria-label="Main">
+  <div class="bar">
+    <a class="logo" href="#home">HAIL<b>STONES</b></a>
+    <button id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">☰</button>
+    <ul class="links" id="menu">
+      <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#socials">Socials</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<section id="home" aria-label="Home">
+  <img id="ph" src="assets/hero.jpg" alt="A hooded figure in a white mask and black suit stands in the dark" fetchpriority="high" decoding="async">
+  <div id="tint" aria-hidden="true"></div>
+  <canvas id="gl" role="img" aria-label="A gloved hand reaching out of the screen toward the visitor"></canvas>
+  <div id="fb" aria-hidden="true"><i></i><i></i></div>
+  <div class="vig"></div>
+  <div class="wrap hero">
+    <h1 class="glitch" data-text="HAILSTONES">HAILSTONES</h1>
+    <div class="sub">THE MIND BEHIND THE CODE.</div>
+    <p class="bio">Hailstones is a developer whose interests span software development, gaming development, and immersive digital experiences. His work reflects a passion for technology, creative experimentation, and building projects with a distinctive digital identity.</p>
+    <div class="btns">
+      <a class="btn" href="#projects">EXPLORE PROJECTS</a>
+      <a class="btn alt" href="https://iamhailstones.github.io/ghostcts4" target="_blank" rel="noopener noreferrer">ENTER GHOST CTS 4</a>
+    </div>
+  </div>
+</section>
+
+<section id="about"><div class="wrap">
+  <h2>BEHIND THE <em>SCREEN</em></h2>
+  <p class="lead">Hailstones is a developer with an interest in software development, gaming development, and interactive digital experiences. He explores the creative possibilities of technology, combining technical curiosity with an interest in building digital projects. His online identity reflects a distinctive approach to technology, gaming, and digital creativity.</p>
+  <div class="grid" style="margin-top:28px">
+    <div class="card"><h3>Software</h3><p>Software development and web development.</p></div>
+    <div class="card"><h3>Games</h3><p>Gaming development and interactive play.</p></div>
+    <div class="card"><h3>Experiences</h3><p>Immersive digital experiences and creative technology.</p></div>
+    <div class="card"><h3>Projects</h3><p>Digital projects with a distinctive identity.</p></div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>THE <em>PROJECTS</em></h2>
+  <div class="card proj">
+    <span class="badge">IN DEVELOPMENT</span>
+    <h3 class="glitch" data-text="GHOST CTS 4">GHOST CTS 4</h3>
+    <p>GHOST CTS 4 is an evolving project associated with Hailstones. Currently in development, it represents the next chapter in his exploration of digital creation and interactive technology.</p>
+    <p style="margin-top:12px"><a href="https://iamhailstones.github.io/ghostcts4" target="_blank" rel="noopener noreferrer">iamhailstones.github.io/ghostcts4</a></p>
+    <div class="btns" style="margin-top:20px"><a class="btn" href="https://iamhailstones.github.io/ghostcts4" target="_blank" rel="noopener noreferrer">VISIT GHOST CTS 4</a></div>
+  </div>
+</div></section>
+
+<section id="socials"><div class="wrap">
+  <h2>FIND <em>HAILSTONES</em></h2>
+  <div class="grid" id="socialGrid"></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>CONNECT WITH <em>HAILSTONES</em></h2>
+  <p class="lead">Questions, ideas or collaborations — reach out.</p>
+  <p class="mail">Email: <a href="mailto:iamhailstones@gmail.com">iamhailstones@gmail.com</a></p>
+  <div class="btns"><a class="btn" href="mailto:iamhailstones@gmail.com">SEND AN EMAIL</a><a class="btn alt" href="#socials">ALL PROFILES</a></div>
+</div></section>
+</main>
+<footer>© HAILSTONES — NOT EVERY SHADOW IS EMPTY.</footer>
+<button id="fx" type="button" aria-pressed="false">REDUCE EFFECTS</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ===== EDIT LINKS HERE ===== */
+const YOUTUBE_URL = ""; // paste the verified channel URL here. Empty = safe YouTube search fallback.
+const S = [
+ {n:"Gmail",u:"iamhailstones@gmail.com",t:"CONTACT",b:"SEND AN EMAIL",h:"mailto:iamhailstones@gmail.com",ext:0,i:"M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.4 2L12 12.6 19.6 7z"},
+ {n:"GitHub",u:"iamhailstones",t:"DEVELOPER & PROJECTS",b:"EXPLORE GITHUB",h:"https://github.com/iamhailstones",i:"M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"},
+ {n:"X / Twitter",u:"@iamhailstones",t:"UPDATES",b:"FOLLOW ON X",h:"https://x.com/iamhailstones",i:"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"},
+ {n:"YouTube",u:"iamhailstones",t:"VIDEO",b:"VISIT YOUTUBE",h:YOUTUBE_URL||"https://www.youtube.com/results?search_query=iamhailstones",i:"M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.200 0-7.800.4A2.500 2.500 0 0 0 2.400 7.200C2 8.800 2 12 2 12s0 3.200.4 4.800a2.500 2.500 0 0 0 1.800 1.800C5.800 19 12 19 12 19s6.200 0 7.800-.4a2.500 2.500 0 0 0 1.800-1.800c.4-1.600.4-4.800.4-4.800s0-3.200-.4-4.800zM10 15V9l5.200 3z"},
+ {n:"Linktree",u:"iamhailstones",t:"EVERY LINK",b:"ALL MY LINKS",h:"https://linktr.ee/iamhailstones",i:"M11 2h2v6l4-4 1.400 1.400L14.800 9H20v2h-5.200l3.600 3.600L17 16l-5-5-5 5-1.400-1.400L9.200 11H4V9h5.200L5.600 5.400 7 4l4 4zm0 14h2v6h-2z"},
+ {n:"TikTok",u:"@iamhailstones",t:"SHORT VIDEO",b:"VISIT TIKTOK",h:"https://www.tiktok.com/@iamhailstones",i:"M16.600 2h-3.200v13.200a2.800 2.800 0 1 1-2.800-2.800c.3 0 .6 0 .8.100V9.200a6 6 0 1 0 5.200 5.900V8.600A7.200 7.200 0 0 0 21 10V6.800A4.200 4.200 0 0 1 16.600 2z"},
+ {n:"Facebook",u:"Hailstones on Facebook",t:"COMMUNITY",b:"VISIT FACEBOOK",h:"https://www.facebook.com/share/1DXMzSJYtK/",i:"M14 8V6.500c0-.7.200-1.100 1.200-1.100H17V2h-2.800C11.300 2 10 3.700 10 6v2H7.500v3.500H10V22h4V11.500h2.800L17.300 8z"}
+];
+document.getElementById("socialGrid").innerHTML=S.map(s=>{const ext=s.ext!==0;
+ return `<article class="card"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${s.i}"/></svg><span class="tag">${s.t}</span><h3>${s.n}</h3><p>${s.u}</p><a class="btn" href="${s.h}"${ext?' target="_blank" rel="noopener noreferrer"':''} aria-label="${s.b} — ${s.n}">${s.b}</a></article>`}).join("");
+
+/* nav */
+const $=q=>document.querySelector(q),menu=$("#menu"),bg=$("#burger");
+bg.onclick=()=>{const o=menu.classList.toggle("open");bg.setAttribute("aria-expanded",o);bg.textContent=o?"✕":"☰"};
+menu.querySelectorAll("a").forEach(a=>a.onclick=()=>{menu.classList.remove("open");bg.setAttribute("aria-expanded",false);bg.textContent="☰"});
+
+/* intro */
+const RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let calm=RM;
+const intro=$("#intro");
+function endIntro(){intro.classList.add("done");setTimeout(()=>intro.remove(),900)}
+$("#skip").onclick=endIntro;
+if(RM)endIntro();else setTimeout(endIntro,3600);
+$("#skip").focus({preventScroll:true});
+$("#fx").onclick=e=>{calm=!calm;document.body.classList.toggle("calm",calm);e.target.setAttribute("aria-pressed",calm);e.target.textContent=calm?"EFFECTS REDUCED":"REDUCE EFFECTS"};
+if(RM)document.body.classList.add("calm");
+
+/* desktop tilt */
+if(matchMedia("(hover:hover) and (pointer:fine)").matches)document.querySelectorAll(".card").forEach(c=>{
+ c.addEventListener("mousemove",e=>{if(calm)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*7}deg) rotateX(${-y*7}deg)`});
+ c.addEventListener("mouseleave",()=>c.style.transform="")});
+
+/* ===== 3D SCENE ===== */
+(function(){
+ const home=$("#home"),cv=$("#gl");
+ const fail=()=>home.classList.add("nogl");
+ let R;
+ try{
+  if(!window.THREE)throw 0;
+  const mob=matchMedia("(pointer:coarse)").matches||innerWidth<700;
+  R=new THREE.WebGLRenderer({canvas:cv,antialias:!mob,alpha:true,powerPreference:"high-performance"});
+  R.setPixelRatio(Math.min(devicePixelRatio||1,mob?1.5:2));
+  const sc=new THREE.Scene();sc.fog=new THREE.FogExp2(0x02050C,.075);
+  const cam=new THREE.PerspectiveCamera(50,1,.1,60);
+  /* procedural skin bump */
+  const k=document.createElement("canvas");k.width=k.height=128;const g=k.getContext("2d"),d=g.createImageData(128,128);
+  for(let i=0;i<d.data.length;i+=4){const v=120+Math.random()*90;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255}
+  g.putImageData(d,0,0);const bump=new THREE.CanvasTexture(k);bump.wrapS=bump.wrapT=THREE.RepeatWrapping;bump.repeat.set(4,4);
+  const skin=new THREE.MeshStandardMaterial({color:0x15171f,roughness:.42,metalness:.1,bumpMap:bump,bumpScale:.5});
+  const dark=new THREE.MeshStandardMaterial({color:0x05070d,roughness:1});
+  /* lights */
+  sc.add(new THREE.AmbientLight(0x1a2a5a,.7));
+  const red=new THREE.PointLight(0xFF233F,2.4,18);red.position.set(3,1,2);sc.add(red);
+  const blue=new THREE.PointLight(0x1769FF,2.6,22);blue.position.set(-4,2,-1);sc.add(blue);
+  const rim=new THREE.PointLight(0x3a7bff,3,16);rim.position.set(0,3,-8);sc.add(rim);
+  const cloth=new THREE.MeshStandardMaterial({color:0x0d1120,roughness:.95});
+  const shirt=new THREE.MeshStandardMaterial({color:0xd8d2c6,roughness:.8});
+  const head=new THREE.Group(),body=new THREE.Group(),eyes=[];sc.add(head,body);
+  /* hand (fingers along +y, rotated to point at camera) */
+  const hand=new THREE.Group(),inner=new THREE.Group();hand.add(inner);sc.add(hand);
+  const cuff=new THREE.Mesh(new THREE.CylinderGeometry(.43,.43,.2,24),shirt);cuff.position.y=-.55;inner.add(cuff);
+  const palm=new THREE.Mesh(new THREE.BoxGeometry(1,.9,.28),skin);inner.add(palm);
+  const arm=new THREE.Mesh(new THREE.CylinderGeometry(.4,.5,5,24),cloth);arm.position.y=-2.9;inner.add(arm);
+  const joints=[];
+  function seg(r,L){const m=new THREE.Mesh(new THREE.CylinderGeometry(r*.8,r,L,14),skin);m.position.y=L/2;return m}
+  [[-.38,1,.15],[-.13,1.15,.15],[.12,1.08,.14],[.36,.9,.13]].forEach(([x,L,r],fi)=>{
+   let parent=new THREE.Group();parent.position.set(x,.42,0);inner.add(parent);const js=[];
+   for(let j=0;j<3;j++){const gj=new THREE.Group();parent.add(gj);gj.add(seg(r*(1-j*.12),L/3));js.push(gj);const nx=new THREE.Group();nx.position.y=L/3;gj.add(nx);parent=nx}
+   joints.push(js)});
+  const th=new THREE.Group();th.position.set(.52,-.1,0);th.rotation.z=-.9;inner.add(th);th.add(seg(.17,.55));
+  const th2=new THREE.Group();th2.position.y=.55;th.add(th2);th2.add(seg(.14,.5));
+  inner.rotation.x=Math.PI/2-.12;
+  /* particles */
+  const N=mob?120:260,pp=new Float32Array(N*3);
+  for(let i=0;i<N;i++){pp[i*3]=(Math.random()-.5)*14;pp[i*3+1]=(Math.random()-.5)*9;pp[i*3+2]=Math.random()*-10+2}
+  const pg=new THREE.BufferGeometry();pg.setAttribute("position",new THREE.BufferAttribute(pp,3));
+  const pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0x6a9bff,size:.035,transparent:true,opacity:.6}));sc.add(pts);
+  /* layout per aspect */
+  let hx,hy,baseZ;
+  function resize(){
+   const w=home.clientWidth||innerWidth,h=home.clientHeight||innerHeight,a=w/h;
+   R.setSize(w,h,false);cam.aspect=a;
+   if(a<.8){cam.fov=66;cam.position.set(0,.4,5.6);hx=.55;hy=-.95;baseZ=2.1;head.position.set(0,1.4,-5)}
+   else if(a<1.3){cam.fov=58;cam.position.set(0,.2,5.2);hx=.9;hy=-.8;baseZ=2.4;head.position.set(0,.8,-5.3)}
+   else{cam.fov=50;cam.position.set(0,0,5);hx=1.2;hy=-.7;baseZ=2.7;head.position.set(0,.5,-5.5)}
+   cam.updateProjectionMatrix();draw(0)}
+  const px={x:0,y:0,tx:0,ty:0};
+  addEventListener("pointermove",e=>{px.tx=e.clientX/innerWidth*2-1;px.ty=e.clientY/innerHeight*2-1},{passive:true});
+  let t0=performance.now(),run=true,raf=0;
+  function draw(t){
+   const s=calm?.2:1;
+   px.x+=(px.tx-px.x)*.06;px.y+=(px.ty-px.y)*.06;
+   const reach=calm?1:1-Math.pow(1-Math.min(t/4,1),3);
+   const br=Math.sin(t*1.3)*.05*s;
+   hand.position.set(hx+px.x*.25,hy-px.y*.15+br,baseZ-1.6+reach*1.6+Math.sin(t*.8)*.08*s);
+   hand.rotation.set(0,-.2-px.x*.12,0);
+   joints.forEach((js,i)=>js.forEach((j,k)=>j.rotation.x=.25+reach*.2+Math.sin(t*1.8+i*.7)*.12*s));
+   th.rotation.x=.2+reach*.3;
+   body.position.copy(head.position);head.rotation.y=px.x*.35;head.rotation.x=px.y*.2;
+   eyes.forEach(e=>{e.rotation.y=px.x*.35;e.rotation.x=px.y*.3});
+   cam.position.x=px.x*.35*s;
+   cam.lookAt(0,0,-2);
+   red.intensity=2.4+Math.sin(t*3)*.4*s;pts.rotation.y=t*.01*s;
+   R.render(sc,cam)}
+  function loop(){raf=0;if(!run)return;draw((performance.now()-t0)/1000);raf=requestAnimationFrame(loop)}
+  function go(on){run=on&&!document.hidden&&!RM;if(run&&!raf)raf=requestAnimationFrame(loop)}
+  new IntersectionObserver(([e])=>go(e.isIntersecting)).observe(home);
+  document.addEventListener("visibilitychange",()=>go(true));
+  cv.addEventListener("webglcontextlost",e=>{e.preventDefault();fail()});
+  addEventListener("resize",resize);addEventListener("orientationchange",()=>setTimeout(resize,250));
+  resize();if(RM){t0-=4e3;draw(4)}else go(true);
+ }catch(e){fail()}
+})();
+(function(){const h=document.getElementById("home");addEventListener("pointermove",e=>{if(calm)return;h.style.setProperty("--px",(e.clientX/innerWidth*2-1).toFixed(3));h.style.setProperty("--py",(e.clientY/innerHeight*2-1).toFixed(3))},{passive:true})})();
+</script>
+</body>
+</html>
