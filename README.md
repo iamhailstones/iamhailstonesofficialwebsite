@@ -20,6 +20,16 @@ All social links are in the `S` array near the top of the `<script>`.
   3. Put it at `assets/models/man.glb`, add `GLTFLoader` from the Three.js r128 examples, and replace the `head` and `hand` groups with the loaded scene.
 - Pixel ratio is capped (1.5 on phones), rendering pauses off-screen or in background tabs, and reduced-motion users get a still frame.
 
+- 
+GHOST CTS 4
+8 hours ago
+Piece by Piece 
+#bosslevel
+CODE TO SUDBURY 
+GHOST CTS 4 is not just about playing. You get to learn Python along the way. That's one thing I wanted to build into this project.
+
+Hailstones @iamhailstones
+
 ## Accessibility
 Skippable intro, REDUCE EFFECTS button, `prefers-reduced-motion` support, visible focus, keyboard navigation, no hover-only features.
 
