@@ -62,6 +62,8 @@ nav button:hover{background:#ffffff14}
 <h2 id="fh">FIND HAILSTONES</h2>
 <p>Follow the developer, explore the projects, and stay connected with the world of GHOST CTS.</p>
 <div class="grid" id="g1"></div>
+<h3>PROJECTS</h3>
+<div class="grid" id="projects"></div>
 <h3>GHOST CTS 4 OFFICIAL ACCOUNTS</h3>
 <div class="grid" id="g2"></div>
 </section>
@@ -83,6 +85,12 @@ const personal=[["X","@iamhailstones","https://x.com/iamhailstones","X"],["TikTo
 const game=[["X","@GHOST_CTS_4","https://x.com/GHOST_CTS_4","X"],["YouTube","@GHOSTCTS4","https://www.youtube.com/@GHOSTCTS4","YT"]];
 const draw=(el,a)=>{el.innerHTML=a.map(([n,h,u,i])=>`<a class="s" href="${u}"${u.startsWith("mailto")?"":' target="_blank" rel="noopener"'}><b aria-hidden="true">${i}</b><div>${n}<span>${h}</span></div></a>`).join("")};
 draw($("#g1"),personal);draw($("#g2"),game);
+const projects=[
+["GHOST CTS 4","Play GHOST CTS 4","https://iamhailstones.github.io/ghostcts4","G4"],
+["GHOST CTS 3","Play GHOST CTS 3","https://iamhailstones.github.io/ghostcts3","G3"],
+["OMARE WEBSITE","omareofficialwebsite.render.app","https://omareofficialwebsite.render.app","OM"]
+];
+draw($("#projects"),projects);
 $(".drips").innerHTML=[6,18,29,41,52,64,75,88].map((l,i)=>`<i style="left:${l}%;--h:${30+(i*37)%55}px;animation-delay:${(i*.7).toFixed(1)}s"></i>`).join("");
 // ---- renderer ----
 let R;try{R=new T.WebGLRenderer({canvas:$("#c"),antialias:!mobile,powerPreference:"high-performance"})}catch(e){}
