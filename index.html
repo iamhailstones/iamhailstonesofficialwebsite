@@ -69,7 +69,7 @@ nav button:hover{background:#ffffff14}
 </section>
 </main>
 <div id="fade"></div>
-<div class="dock"><a class="btn p" href="https://iamhailstones.github.io/ghostcts4" target="_blank" rel="noopener">PLAY GHOST CTS 4</a><a class="btn" href="https://iamhailstones.github.io/ghostcts3" target="_blank" rel="noopener">PLAY GHOST CTS 3</a></div>
+<div class="dock"><a class="btn p" href="https://ghostcts4.vercel.app" target="_blank" rel="noopener">PLAY GHOST CTS 4</a><a class="btn" href="https://iamhailstones.github.io/ghostcts3" target="_blank" rel="noopener">PLAY GHOST CTS 3</a></div>
 <noscript><p style="position:fixed;top:70px;left:0;right:0;text-align:center">Please enable JavaScript.</p></noscript>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -77,7 +77,7 @@ nav button:hover{background:#ffffff14}
 const $=s=>document.querySelector(s),T=THREE;
 const mobile=/Android|iPhone|iPad|Mobile/i.test(navigator.userAgent)||innerWidth<760;
 const reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
-const U4="https://iamhailstones.github.io/ghostcts4",U3="https://iamhailstones.github.io/ghostcts3";
+const U4="https://ghostcts4.vercel.app",U3="https://iamhailstones.github.io/ghostcts3";
 const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),lerp=(a,b,t)=>a+(b-a)*t;
 const sm=(a,b,p)=>{const t=cl((p-a)/(b-a));return t*t*(3-2*t)};
 // ---- SOCIAL DATA: edit links here ----
@@ -86,9 +86,9 @@ const game=[["X","@GHOST_CTS_4","https://x.com/GHOST_CTS_4","X"],["YouTube","@GH
 const draw=(el,a)=>{el.innerHTML=a.map(([n,h,u,i])=>`<a class="s" href="${u}"${u.startsWith("mailto")?"":' target="_blank" rel="noopener"'}><b aria-hidden="true">${i}</b><div>${n}<span>${h}</span></div></a>`).join("")};
 draw($("#g1"),personal);draw($("#g2"),game);
 const projects=[
-["GHOST CTS 4","Play GHOST CTS 4","https://iamhailstones.github.io/ghostcts4","G4"],
+["GHOST CTS 4","Play GHOST CTS 4","https://ghostcts4.vercel.app","G4"],
 ["GHOST CTS 3","Play GHOST CTS 3","https://iamhailstones.github.io/ghostcts3","G3"],
-["OMARE WEBSITE","omareofficialwebsite.vercel.app","https://omareofficialwebsite.vercelapp","OM"]
+["OMARE WEBSITE","omareofficialwebsite.vercel.app","https://omareofficialwebsite.vercel.app","OM"]
 ];
 draw($("#projects"),projects);
 $(".drips").innerHTML=[6,18,29,41,52,64,75,88].map((l,i)=>`<i style="left:${l}%;--h:${30+(i*37)%55}px;animation-delay:${(i*.7).toFixed(1)}s"></i>`).join("");
