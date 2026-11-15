@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=League+Spartan:wght@700&family=Montserrat:wght@600;800&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#05060a;--fg:#e8e6ea;--mut:#a09ead;--red:#c4122a;--blue:#4a7cff;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#04060c;--fg:#e8e6ea;--mut:#a09ead;--red:#c4122a;--blue:#4a7cff;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
@@ -38,8 +38,7 @@ nav #pb{border-color:#ff4a63;background:#c4122a44;font-weight:700}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:8px;border:1px solid #ffffff33;color:#fff;background:#0b0c12e6;text-decoration:none;letter-spacing:.14em;font-size:13px;font-weight:700;transition:transform .2s,box-shadow .2s,border-color .2s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 8px 28px #c4122a88;border-color:#ff4a63}
 #fade{position:fixed;inset:0;background:#000;z-index:4;opacity:0;pointer-events:none}
-#sec{position:relative;z-index:6;margin-top:-34vh;padding:calc(34vh + 110px) 18px 70px;text-align:center;background:radial-gradient(ellipse 100% 55vh at 50% 46vh,rgba(110,0,20,.28),rgba(110,0,20,0) 70%),linear-gradient(180deg,rgba(5,6,10,0) 0,rgba(5,6,10,.12) 16vh,rgba(5,6,10,.5) 36vh,rgba(5,6,10,.9) 56vh,#05060a 74vh)}
-.rv{opacity:0;transform:translateY(26px);transition:opacity 1.2s ease,transform 1.2s ease}.rv.in{opacity:1;transform:none}
+#sec{position:relative;z-index:6;margin-top:-34vh;padding:calc(34vh + 110px) 18px 70px;text-align:center;background:linear-gradient(180deg,rgba(4,6,12,0) 0,rgba(4,6,12,.12) 16vh,rgba(4,6,12,.5) 36vh,rgba(4,6,12,.9) 56vh,#04060c 74vh)}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:720px;margin:0 auto}.chips span{padding:10px 16px;border-radius:999px;background:#0d0e15;border:1px solid #c4122a99;font:700 13px Inter,sans-serif;letter-spacing:.08em;color:var(--fg)}
 .pan{max-width:none;margin:0;height:100%;display:flex;flex-direction:column;align-items:center}.pan p{flex:1}
 .pr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid #ffffff1a;border-radius:10px;background:#0d0e15;margin-bottom:8px}.pr b{font:700 15px "League Spartan",Inter,sans-serif;letter-spacing:.06em;text-align:left}.pr .btn{min-height:38px;padding:0 14px;font-size:11px;background:linear-gradient(#d0152e,#8f0c1f);border-color:#ff4a63}
@@ -84,20 +83,9 @@ h1,.big{font-family:Montserrat,Impact,sans-serif;font-weight:800}
 .dv{max-width:760px;margin:46px auto}.dv svg{display:block;width:100%;height:auto;filter:drop-shadow(0 0 6px rgba(255,40,70,.7))}
 .lg{display:block;width:min(200px,58%);aspect-ratio:657/697;height:auto;margin:0 auto 14px}
 #projects .pan b{font-size:clamp(20px,5.2vw,26px);overflow-wrap:anywhere}
-.bx{position:relative;--d:min(100vmin,100vw);--r:min(50vmin,50vw)}
-.bx:before{content:"";position:absolute;left:50%;top:-10px;width:var(--d);height:var(--d);margin:calc(var(--d)/-2) 0 0 calc(var(--d)/-2);border-radius:50%;background:radial-gradient(circle,rgba(255,110,70,.6) 0,rgba(196,18,42,.3) 24%,rgba(110,0,20,0) 62%);opacity:0;transform:scale(.1);pointer-events:none;z-index:-1}
-.bx:after{content:"";position:absolute;left:50%;top:-10px;width:var(--r);height:var(--r);margin:calc(var(--r)/-2) 0 0 calc(var(--r)/-2);border-radius:50%;border:2px solid rgba(255,100,90,.85);box-shadow:0 0 40px rgba(255,40,60,.7),inset 0 0 40px rgba(255,40,60,.4);opacity:0;transform:scale(.1);pointer-events:none}
-.bx.in:before{animation:bst 1.9s cubic-bezier(.12,.7,.2,1) forwards}
-.bx.in:after{animation:ring 1.6s ease-out forwards}
-@keyframes bst{0%{opacity:0;transform:scale(.1)}25%{opacity:1}100%{opacity:0;transform:scale(1)}}
-@keyframes ring{0%{opacity:.9;transform:scale(.1)}100%{opacity:0;transform:scale(1.9)}}
-.bx:not(.in) h2,.bx:not(.in) p{opacity:0}
-.bx.in h2{background:linear-gradient(100deg,#ddd8de 40%,#ff4a63 50%,#ddd8de 60%) 0 0/250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:pop 1.3s cubic-bezier(.2,.9,.2,1) both,shine 4s linear 1.4s infinite}
-.bx.in p{animation:pop2 1.5s .3s cubic-bezier(.2,.9,.2,1) both}
-@keyframes pop{0%{transform:scale(.55);filter:blur(14px);opacity:0}60%{opacity:1}100%{transform:none;filter:none;opacity:1}}
-@keyframes pop2{0%{transform:translateY(22px) scale(.96);filter:blur(8px);opacity:0}100%{transform:none;filter:none;opacity:1}}
-@keyframes shine{from{background-position:100% 0}to{background-position:0 0}}
-@media(prefers-reduced-motion:reduce){.bx:before,.bx:after{display:none}.bx h2,.bx p{animation:none!important;opacity:1!important}}
+/* scroll-linked turning panels: content is always in the page, only its pose changes */
+#ah:after{content:"";display:block;height:3px;width:140px;max-width:60%;margin:14px auto 0;background:linear-gradient(90deg,transparent,#ff2a45,transparent)}
+@media(prefers-reduced-motion:reduce){.tn,.dv{transform:none!important;opacity:1!important}}
 </style></head><body>
 <nav aria-label="Sections"><div><button id="pb" aria-expanded="false" aria-controls="pp">PROJECTS ▾</button><span id="chap" style="display:contents"><button data-p="0">INTRO</button><button data-p=".95">WORLD</button><button data-a="1">ABOUT</button><button data-g="1">GAMES</button><button data-f="1">FIND</button></span></div></nav>
 <div id="pp" role="region" aria-label="Projects"><div class="sub" style="margin:0 0 8px">Projects</div><div id="ppl" class="grid" style="grid-template-columns:1fr"></div><button id="pgo" class="btn" style="width:100%;margin-top:10px">ALL PROJECTS ↓</button></div>
@@ -173,9 +161,9 @@ const pt2=o=>{pp.classList.toggle("o",o);pb.setAttribute("aria-expanded",o)};
 pb.onclick=()=>pt2(!pp.classList.contains("o"));
 $("#pgo").onclick=()=>{pt2(false);scrollTo({top:sec.offsetTop+$("#prj").offsetTop-30,behavior:reduced?"auto":"smooth"})};
 addEventListener("keydown",e=>{if(e.key==="Escape")pt2(false)});
-document.querySelectorAll("#sec h2:not(#ah),#sec h3,.pn>p,.tg,.dv,#gm,#projects,#g1,#g2").forEach(x=>x.classList.add("rv"));
-$("#about").classList.add("bx");
-{const els=[...document.querySelectorAll(".rv,.bx")];if(!("IntersectionObserver" in window)||reduced)els.forEach(x=>x.classList.add("in"));else{const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.12});els.forEach(x=>io.observe(x))}}
+const fz=[...document.querySelectorAll("#about,.pn,.dv")];
+const fi=()=>{const vh=innerHeight;fz.forEach(e=>{const t=cl((vh*.98-e.getBoundingClientRect().top)/(vh*.55));e.style.opacity=t>=.999?"":t.toFixed(3)})};
+if(!reduced){addEventListener("scroll",fi,{passive:true});addEventListener("resize",fi);addEventListener("load",fi);fi()}
 // ---- renderer ----
 let R;try{R=new T.WebGLRenderer({canvas:$("#c"),antialias:!mobile,powerPreference:"high-performance"})}catch(e){}
 if(!R){document.body.classList.add("nogl");return}
@@ -273,6 +261,7 @@ function size(){R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/in
 addEventListener("resize",size);size();
 // click the skull -> GHOST CTS 4
 const rc=new T.Raycaster(),pt=new T.Vector2();
+addEventListener("click",e=>{if(e.target.closest("a,button,nav,#pp")||ps<.6||ps>.86)return;pt.set(e.clientX/innerWidth*2-1,-(e.clientY/innerHeight*2-1));rc.setFromCamera(pt,cam);if(rc.intersectObject(hit)[0])window.open("https://ghostchatbox.onrender.com","_blank","noopener")});
 
 let on=false,sting=null,hit1=0,hit2=0;
 // ---- frame ----
