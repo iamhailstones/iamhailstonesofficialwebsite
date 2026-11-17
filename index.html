@@ -130,6 +130,28 @@ h1,.big{font-family:Montserrat,Impact,sans-serif;font-weight:800}
 #sec .wrap p.tgl{font:600 15px Inter,sans-serif;color:#c9d2e8;margin:0 0 12px}
 @media(max-width:640px){#k2{top:17%!important}}
 @media(max-width:480px){.chips span{font-size:12px;padding:5px 10px}}
+/* text fit on all phones (character untouched) */
+h1{font-size:min(10.5vw,150px);letter-spacing:.06em;white-space:nowrap}
+.big{font-size:clamp(18px,7vw,80px);letter-spacing:.06em;white-space:nowrap;font-weight:700}
+@media(max-width:480px){.sub{letter-spacing:.2em;font-size:11px}}
+.oh{position:fixed;left:0;right:0;bottom:12%;text-align:center;z-index:2;opacity:0;pointer-events:none}
+.oh span{display:inline-block;font:700 12px Inter,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#f2f4fa;animation:blk 1.3s ease-in-out infinite}
+.oh span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#e0243f;margin-right:10px;vertical-align:1px}
+@keyframes blk{0%,100%{opacity:1}50%{opacity:.25}}
+/* smart orb: blue, flat, rotating, no glow */
+.ai{display:flex;align-items:center;gap:20px;max-width:440px;margin-top:48px;padding:16px 20px;border:1px solid #18223a;border-radius:14px;background:#0a1020;color:#f2f4fa;text-decoration:none;transition:border-color .2s}
+.ai:hover{border-color:#2f6df0}
+.orb{position:relative;flex:none;width:58px;height:58px;margin:8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8dbbff,#2f6df0 55%,#14388f);perspective:260px}
+.orb:before,.orb:after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;border-radius:50%;border:1.5px solid rgba(255,255,255,.45);animation:ry 6s linear infinite}
+.orb:after{animation-delay:-3s}
+.orb i{position:absolute;top:-10px;left:-10px;right:-10px;bottom:-10px;border:1px solid rgba(95,152,255,.6);border-radius:50%;transform:rotateX(72deg);animation:rz 5s linear infinite}
+.orb i:after{content:"";position:absolute;top:-3px;left:50%;margin-left:-3px;width:6px;height:6px;border-radius:50%;background:#9cc4ff}
+@keyframes ry{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}
+@keyframes rz{from{transform:rotateX(72deg) rotateZ(0)}to{transform:rotateX(72deg) rotateZ(360deg)}}
+.ait b{display:block;font:700 17px Inter,sans-serif;color:#f2f4fa}
+.ait small{display:block;font:500 14px Inter,sans-serif;color:#98a3bd;margin-top:2px}
+.ar{margin-left:auto;color:#98a3bd}
+@media(prefers-reduced-motion:reduce){.orb:before,.orb:after,.orb i,.oh span{animation:none}}
 </style></head><body>
 <nav aria-label="Sections"><div><button id="pb" aria-expanded="false" aria-controls="pp">PROJECTS ▾</button><span id="chap" style="display:contents"><button data-p="0">INTRO</button><button data-p=".95">WORLD</button><button data-a="1">ABOUT</button><button data-g="1">GAMES</button><button data-f="1">FIND</button></span></div></nav>
 <div id="pp" role="region" aria-label="Projects"><div class="sub" style="margin:0 0 8px">Projects</div><div id="ppl" class="grid" style="grid-template-columns:1fr"></div><button id="pgo" class="btn" style="width:100%;margin-top:10px">ALL PROJECTS ↓</button></div>
@@ -157,6 +179,7 @@ h1,.big{font-family:Montserrat,Impact,sans-serif;font-weight:800}
 <div class="cap" id="k2" style="top:12%"><div class="big">HAILSTONES</div><div class="sub">The internet wolf</div></div>
 <div class="cap" id="k3" style="top:40%"><div class="sub">Find more about Hailstones and his projects</div></div>
 <div class="hint" id="hint">SCROLL</div>
+<div class="oh" id="oh" aria-hidden="true"><span>Tap the orb</span></div>
 </section>
 <section id="sec" aria-labelledby="ah">
 <div class="wrap">
@@ -194,7 +217,8 @@ h1,.big{font-family:Montserrat,Impact,sans-serif;font-weight:800}
 <a class="mail" href="mailto:iamhailstones@gmail.com">iamhailstones@gmail.com</a>
 <div class="rows" id="g1"></div>
 <h3 class="sub">GHOST CTS official accounts</h3>
-<div class="rows" id="g2"></div></div>
+<div class="rows" id="g2"></div>
+<a class="ai" href="https://ghostchatbox.onrender.com" target="_blank" rel="noopener"><span class="orb" aria-hidden="true"><i></i></span><span class="ait"><b>Know more about Hailstones</b><small>Ask my AI assistant</small></span><span class="ar" aria-hidden="true">&rarr;</span></a></div>
 <footer class="ft">&copy; Hailstones. Software developer and creator of the GHOST CTS series.</footer>
 </div>
 </section>
@@ -337,7 +361,7 @@ addEventListener("click",e=>{if(e.target.closest("a,button,nav,#pp")||ps<.6||ps>
 let on=false,sting=null,hit1=0,hit2=0;
 // ---- frame ----
 const A=new T.Vector3(.15,1.58,.95),PB=new T.Vector3(0,1.3,3.4),hw=new T.Vector3(),lk=new T.Vector3(),cp=new T.Vector3(),lk0=new T.Vector3(),lk1=new T.Vector3();
-const k=[$("#k0"),$("#k1"),$("#k2"),$("#k3")],hint=$("#hint"),fade=$("#fade");
+const k=[$("#k0"),$("#k1"),$("#k2"),$("#k3")],hint=$("#hint"),oh=$("#oh"),fade=$("#fade");
 const bump=(a,b,c,d)=>sm(a,b,ps)*(1-sm(c,d,ps));
 let ob0=-1,nb=2,bt=-9,last=performance.now(),acc=0,fr=0,worldOn=false;
 function loop(now){requestAnimationFrame(loop);const dt=Math.min(.05,(now-last)/1000);last=now;const t=now/1000;
@@ -368,7 +392,7 @@ else{const u=sm(.86,1,ps);cp.set(lerp(-7,7.2,u),lerp(3.4,1.7,u),-300+lerp(20,3.5
 }
 cam.position.set(cp.x+mx*.2*(w?4:1),cp.y+my*.1*(w?2:1),cp.z);cam.lookAt(lk);
 const rpa=rg.attributes.position.array;for(let i=0;i<N;i++){const j=i*6;rpa[j+1]-=dt*14;rpa[j]+=dt*1.2;if(rpa[j+1]<-7)seed(i);else{rpa[j+4]=rpa[j+1]-.5;rpa[j+3]=rpa[j]+.05}}rg.attributes.position.needsUpdate=true;
-k[0].style.opacity=1-sm(.04,.13,ps);hint.style.opacity=1-sm(.02,.07,ps);k[1].style.opacity=bump(.16,.22,.3,.38);k[2].style.opacity=bump(.68,.74,.84,.86);k[3].style.opacity=sm(.92,.97,ps)*(1-sm(.99,1,ps));
+k[0].style.opacity=1-sm(.04,.13,ps);hint.style.opacity=1-sm(.02,.07,ps);oh.style.opacity=(sm(.66,.7,ps)*(1-sm(.82,.85,ps))).toFixed(2);k[1].style.opacity=bump(.16,.22,.3,.38);k[2].style.opacity=bump(.68,.74,.84,.86);k[3].style.opacity=sm(.92,.97,ps)*(1-sm(.99,1,ps));
 R.render(scene,cam)}
 requestAnimationFrame(loop);
 addEventListener("pagehide",()=>R.dispose());
