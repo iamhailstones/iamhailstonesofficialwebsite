@@ -4,6 +4,8 @@
 <title>HAILSTONES | GHOST CTS</title>
 <meta name="description" content="Hailstones, developer of the GHOST series. Play GHOST CTS 4 and find the official accounts.">
 <meta name="color-scheme" content="dark">
+<meta property="og:title" content="HAILSTONES | Software developer"><meta property="og:description" content="Software developer building web applications, backend systems and AI-powered products. Creator of the GHOST CTS series."><meta property="og:type" content="website"><meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%230a0305%22/%3E%3Cpath d=%22M14 24l16 5-6 9zM50 24l-16 5 6 9z%22 fill=%22%23ff2a2a%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=League+Spartan:wght@700&family=Montserrat:wght@600;800&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -38,7 +40,7 @@ nav #pb{border-color:#ff4a63;background:#c4122a44;font-weight:700}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:8px;border:1px solid #ffffff33;color:#fff;background:#0b0c12e6;text-decoration:none;letter-spacing:.14em;font-size:13px;font-weight:700;transition:transform .2s,box-shadow .2s,border-color .2s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 8px 28px #c4122a88;border-color:#ff4a63}
 #fade{position:fixed;inset:0;background:#000;z-index:4;opacity:0;pointer-events:none}
-#sec{position:relative;z-index:6;margin-top:-34vh;padding:calc(34vh + 110px) 18px 70px;text-align:center;background:linear-gradient(180deg,rgba(4,6,12,0) 0,rgba(4,6,12,.12) 16vh,rgba(4,6,12,.5) 36vh,rgba(4,6,12,.9) 56vh,#04060c 74vh)}
+#sec{position:relative;z-index:6;margin-top:-34vh;padding:calc(34vh + 110px) 18px 70px;text-align:left;color:#e8ecf6;background:linear-gradient(180deg,rgba(4,6,12,0) 0,rgba(4,6,12,.12) 16vh,rgba(4,6,12,.5) 36vh,rgba(4,6,12,.9) 56vh,#04060c 74vh)}
 .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:720px;margin:0 auto}.chips span{padding:10px 16px;border-radius:999px;background:#0d0e15;border:1px solid #c4122a99;font:700 13px Inter,sans-serif;letter-spacing:.08em;color:var(--fg)}
 .pan{max-width:none;margin:0;height:100%;display:flex;flex-direction:column;align-items:center}.pan p{flex:1}
 .pr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid #ffffff1a;border-radius:10px;background:#0d0e15;margin-bottom:8px}.pr b{font:700 15px "League Spartan",Inter,sans-serif;letter-spacing:.06em;text-align:left}.pr .btn{min-height:38px;padding:0 14px;font-size:11px;background:linear-gradient(#d0152e,#8f0c1f);border-color:#ff4a63}
@@ -86,6 +88,48 @@ h1,.big{font-family:Montserrat,Impact,sans-serif;font-weight:800}
 /* scroll-linked turning panels: content is always in the page, only its pose changes */
 #ah:after{content:"";display:block;height:3px;width:140px;max-width:60%;margin:14px auto 0;background:linear-gradient(90deg,transparent,#ff2a45,transparent)}
 @media(prefers-reduced-motion:reduce){.tn,.dv{transform:none!important;opacity:1!important}}
+/* portfolio sections: one continuous dark blue */
+.wrap{max-width:1040px;margin:0 auto}
+.blk{padding:72px 0}
+#sec .eb,.eb{display:block;font:600 12px Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#7f8db0;margin:0 0 14px}
+.eb:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#e0243f;margin-right:10px;vertical-align:1px}
+#sec h2.t{font:700 clamp(28px,4.4vw,44px)/1.14 Montserrat,Inter,sans-serif;letter-spacing:-.02em;color:#f2f4fa;margin:0 0 22px;max-width:820px}
+#sec .wrap p{max-width:none;margin:0 0 16px;font:500 17px/1.7 Inter,sans-serif;color:#aab4cc}
+#sec .wrap p.lead{max-width:640px;margin-bottom:28px}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-top:8px}
+.what{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.what li,.steps li{font:500 15px/1.6 Inter,sans-serif;color:#98a3bd;padding:16px 18px;border:1px solid #18223a;border-radius:12px;background:#0a1020}
+.what b,.steps b{display:block;font:700 16px Inter,sans-serif;color:#f2f4fa;margin-bottom:4px}
+.sk{display:grid;grid-template-columns:200px 1fr;gap:12px 30px;padding:18px 0}
+#sec .sk h3{font:700 15px Inter,sans-serif;letter-spacing:0;margin:6px 0 0;color:#f2f4fa}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font:600 13px Inter,sans-serif;color:#aab4cc;border:1px solid #1d2a47;border-radius:999px;padding:6px 12px;background:#0a1020}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.card{display:flex;flex-direction:column;align-items:flex-start;background:#0a1020;border:1px solid #18223a;border-radius:14px;padding:26px}
+.card .eb{margin-bottom:10px}
+#sec .card h3{font:700 22px Montserrat,Inter,sans-serif;letter-spacing:-.01em;margin:0 0 10px;color:#f2f4fa}
+.card .chips{margin:6px 0 20px}
+.card p{flex:0}
+.card .lnk{margin-top:auto}
+.card .lg{width:104px;margin:0 0 18px}
+.lnk{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border:1px solid #2a3858;border-radius:10px;color:#f2f4fa;text-decoration:none;font:600 14px Inter,sans-serif;transition:border-color .2s,background .2s}
+.lnk:hover{border-color:#e0243f;background:#0d1428}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:14px;counter-reset:s}
+.steps li{counter-increment:s}.steps li:before{content:"0" counter(s);display:block;font:700 12px Inter,sans-serif;letter-spacing:.16em;color:#e0243f;margin-bottom:10px}
+.mail{display:inline-block;font:700 clamp(20px,3.4vw,30px) Montserrat,Inter,sans-serif;color:#f2f4fa;text-decoration:none;border-bottom:2px solid #e0243f;padding-bottom:4px;margin:4px 0 30px;overflow-wrap:anywhere}
+.rows{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));column-gap:40px}
+.row{display:grid;grid-template-columns:24px 110px 1fr;align-items:center;gap:12px;min-height:54px;padding:8px 2px;color:#e8ecf6;text-decoration:none;border-bottom:1px solid #121a2c}
+.row svg{width:20px;height:20px;display:block}
+.row .rn{font:600 15px Inter,sans-serif}.row .rh{font:500 14px Inter,sans-serif;color:#98a3bd;overflow-wrap:anywhere}
+.row:hover .rn{color:#ff4a63}
+#sec h3.sub{font:700 15px Inter,sans-serif;letter-spacing:0;margin:44px 0 6px;color:#f2f4fa}
+.ft{padding:48px 0 10px;font:500 13px Inter,sans-serif;color:#7f8db0}
+@media(max-width:720px){.cols{grid-template-columns:1fr}.sk{grid-template-columns:1fr;gap:8px}.row{grid-template-columns:24px 96px 1fr}.blk{padding:56px 0}}
+.pi{width:44px;height:44px;display:grid;place-items:center;border:1px solid #1d2a47;border-radius:12px;color:#e8ecf6;background:#0d1428;margin-bottom:16px}
+.card:hover .pi{color:#ff4a63;border-color:#e0243f}
+#sec .wrap p.tgl{font:600 15px Inter,sans-serif;color:#c9d2e8;margin:0 0 12px}
+@media(max-width:640px){#k2{top:17%!important}}
+@media(max-width:480px){.chips span{font-size:12px;padding:5px 10px}}
 </style></head><body>
 <nav aria-label="Sections"><div><button id="pb" aria-expanded="false" aria-controls="pp">PROJECTS ▾</button><span id="chap" style="display:contents"><button data-p="0">INTRO</button><button data-p=".95">WORLD</button><button data-a="1">ABOUT</button><button data-g="1">GAMES</button><button data-f="1">FIND</button></span></div></nav>
 <div id="pp" role="region" aria-label="Projects"><div class="sub" style="margin:0 0 8px">Projects</div><div id="ppl" class="grid" style="grid-template-columns:1fr"></div><button id="pgo" class="btn" style="width:100%;margin-top:10px">ALL PROJECTS ↓</button></div>
@@ -114,22 +158,45 @@ h1,.big{font-family:Montserrat,Impact,sans-serif;font-weight:800}
 <div class="cap" id="k3" style="top:40%"><div class="sub">Find more about Hailstones and his projects</div></div>
 <div class="hint" id="hint">SCROLL</div>
 </section>
-<section id="sec" aria-labelledby="ph">
-<div id="about"><h2 id="ah">ABOUT</h2>
-<p>I'm Hailstones, a software developer and digital creator specializing in web development, application development, game development, API integration, and data management. I build modern, functional, and scalable digital solutions, transforming ideas into reliable products through technology, creativity, and technical expertise. Creator of the GHOST CTS series.</p></div>
-<div id="games" class="pn" style="margin-top:70px"><div class="tg">PANEL 01</div><h2 id="gh">GAMES</h2>
-<p>Play the GHOST CTS series.</p>
-<div class="grid" id="gm"></div></div>
-<div class="dv" aria-hidden="true"><svg viewBox="0 0 600 40"><path d="M0 20H262M338 20H600" stroke="url(#dl)" stroke-width="2"/><path d="M40 27H250M350 27H560" stroke="url(#dl)" stroke-width="1" opacity=".6"/><path d="M270 20h-8M330 20h8M300 4v8M300 28v8" stroke="#ff2a45" stroke-width="2" stroke-linecap="round"/><path d="M300 10L310 20 300 30 290 20Z" fill="none" stroke="#ff2a45" stroke-width="2"/><circle cx="300" cy="20" r="3.5" fill="#ff2a45"/></svg></div>
-<div id="prj" class="pn"><div class="tg">PANEL 02</div><h2 id="ph">PROJECTS</h2>
-<p>Projects I've built.</p>
-<div class="grid" id="projects"></div></div>
-<div class="dv" aria-hidden="true"><svg viewBox="0 0 600 40"><path d="M0 20H262M338 20H600" stroke="url(#dl)" stroke-width="2"/><path d="M40 27H250M350 27H560" stroke="url(#dl)" stroke-width="1" opacity=".6"/><path d="M270 20h-8M330 20h8M300 4v8M300 28v8" stroke="#ff2a45" stroke-width="2" stroke-linecap="round"/><path d="M300 10L310 20 300 30 290 20Z" fill="none" stroke="#ff2a45" stroke-width="2"/><circle cx="300" cy="20" r="3.5" fill="#ff2a45"/></svg></div>
-<div id="find" class="pn"><div class="tg">PANEL 03</div><h2 id="fh">FIND HAILSTONES</h2>
-<p>Follow the developer, explore the projects, and stay connected with the world of GHOST CTS.</p>
-<div class="grid" id="g1"></div>
-<h3>GHOST CTS 4 OFFICIAL ACCOUNTS</h3>
-<div class="grid" id="g2"></div></div>
+<section id="sec" aria-labelledby="ah">
+<div class="wrap">
+<div id="about" class="blk">
+<p class="eb">About</p>
+<h2 id="ah" class="t">Software developer building web applications, backend systems and AI-powered products.</h2>
+<div class="cols"><div>
+<p>I'm Hailstones, a software developer working across full-stack web development, backend and API development, and AI-powered systems. I build software end to end: the interface people use, the APIs and data behind it, and the AI features that make it more useful.</p>
+<p>My projects range from AI-powered platforms and business networking tools to security-focused applications and games. I care about software that is reliable, well structured and practical, and I keep widening what I can build by working on real products.</p>
+<p>I'm also the creator of the GHOST CTS series of browser games.</p></div>
+<ul class="what"><li><b>Software engineering</b>Building complete products, from first idea to live deployment.</li><li><b>Backend and API development</b>Designing and integrating APIs, server-side logic and data management.</li><li><b>AI systems and automation</b>Integrating AI APIs into assistants, narration, automation and business tools.</li><li><b>Full-stack web</b>Responsive interfaces connected to real back ends.</li></ul></div></div>
+<div id="skills" class="blk">
+<p class="eb">Skills</p><h2 class="t">Technical skills</h2>
+<p class="lead">The languages, frameworks and tools behind my projects.</p>
+<h3 class="sub">Used in my projects</h3>
+<div class="sk"><h3>Languages</h3><div class="chips"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>Python</span><span>Go</span><span>Node.js</span><span>Java</span><span>PHP</span><span>C#</span><span>SQL</span></div></div>
+<div class="sk"><h3>Frontend</h3><div class="chips"><span>React</span><span>Vite</span><span>Three.js</span><span>Responsive UI</span></div></div>
+<div class="sk"><h3>Backend and data</h3><div class="chips"><span>REST APIs</span><span>API integration</span><span>Flask</span><span>Backend architecture</span><span>Databases</span></div></div>
+<div class="sk"><h3>Artificial intelligence</h3><div class="chips"><span>AI API integration</span><span>LLM integration</span><span>Prompt engineering</span><span>RAG</span><span>AI automation</span></div></div>
+<div class="sk"><h3>Tools and hosting</h3><div class="chips"><span>Git</span><span>GitHub</span><span>Linux</span><span>npm</span><span>VS Code</span><span>Vercel</span><span>Render</span></div></div></div>
+<div id="prj" class="blk">
+<p class="eb">Work</p><h2 class="t">Projects</h2>
+<p class="lead">Four projects, each with a live deployment.</p>
+<div class="g2" id="projects"></div></div>
+<div id="games" class="blk">
+<p class="eb">Games</p><h2 class="t">The GHOST CTS series</h2>
+<div class="g2" id="gm"></div></div>
+<div id="journey" class="blk">
+<p class="eb">Journey</p><h2 class="t">How my work has grown</h2>
+<p class="lead">I haven't followed one straight path. My work has widened as each project raised new questions.</p>
+<ol class="steps"><li><b>Games and interactive work</b>Browser games, including the GHOST CTS series, taught me to build things people use directly.</li><li><b>Platforms and business tools</b>Ghost Night Stories and VentureSpace took my work into full platforms: content, profiles, search, messaging and dashboards.</li><li><b>Backend, data and security</b>Black Vault led me toward APIs, storage and encryption on the server side.</li><li><b>AI-powered products</b>AI runs through GhostChatbox, Ghost Night Stories and VentureSpace, and AI integration is where I am focusing next.</li></ol></div>
+<div id="find" class="blk">
+<p class="eb">Contact</p><h2 class="t">Find me</h2>
+<p class="lead">Email is the best way to reach me. Everything else is below.</p>
+<a class="mail" href="mailto:iamhailstones@gmail.com">iamhailstones@gmail.com</a>
+<div class="rows" id="g1"></div>
+<h3 class="sub">GHOST CTS official accounts</h3>
+<div class="rows" id="g2"></div></div>
+<footer class="ft">&copy; Hailstones. Software developer and creator of the GHOST CTS series.</footer>
+</div>
 </section>
 </main>
 <div id="fade"></div>
@@ -145,23 +212,27 @@ const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),lerp=(a,b,t)=>a+(b-a)*t;
 const sm=(a,b,p)=>{const t=cl((p-a)/(b-a));return t*t*(3-2*t)};
 // ---- LINKS: edit here ----
 const personal=[["X","@iamhailstones","https://x.com/iamhailstones","X"],["TikTok","@iamhailstones","https://www.tiktok.com/@iamhailstones","TT"],["YouTube","@iamhailstones","https://www.youtube.com/@iamhailstones","YT"],["Instagram","thisishailstones","https://www.instagram.com/thisishailstones","IG"],["Linktree","linktr.ee/iamhailstones","https://linktr.ee/iamhailstones","LT"],["Facebook","stillhailstones","https://www.facebook.com/stillhailstones","f"],["Substack","iamhailstones","https://iamhailstones.substack.com","SS"],["Blogger","iamhailstones","https://iamhailstones.blogspot.com","BL"],["Pinterest","iamhailstones","https://www.pinterest.com/iamhailstones","PI"],["Email","iamhailstones@gmail.com","mailto:iamhailstones@gmail.com","@"]];
-const game=[["X","@GHOSTCTSSERIES","https://x.com/GHOSTCTSSERIES","X"],["YouTube","@GHOSTCTS4","https://www.youtube.com/@GHOSTCTS4","YT"]];
+const game=[["X","@GHOSTCTSSERIES","https://x.com/GHOSTCTSSERIES","X"],["YouTube","@GHOSTCTSSERIES","https://www.youtube.com/@GHOSTCTSSERIES","YT"]];
 const draw=(el,a)=>{el.innerHTML=a.map(([n,h,u,i])=>`<a class="s" href="${u}"${u.startsWith("mailto")?"":' target="_blank" rel="noopener"'}><b aria-hidden="true">${i}</b><div>${n}<span>${h}</span></div></a>`).join("")};
 const SV=(d,x="")=>`<svg viewBox="0 0 24 24" aria-hidden="true" ${x||'fill="currentColor"'}>${d}</svg>`,L='fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
 const IC={X:SV('<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>'),TT:SV('<path d="M14 3v11a4 4 0 11-4-4m4-7c.3 2.5 2 4.2 4.5 4.5"/>',L),YT:SV('<rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="#0d0e15"/>'),IG:SV('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/>',L),LT:SV('<path d="M12 3v18M12 8L7 5M12 8l5-3M12 13l-6-3M12 13l6-3M12 18l-4-2M12 18l4-2"/>',L),f:SV('<path d="M14 8V6.5c0-.7.2-1 1.200-1H17V2h-2.700C11.300 2 10 3.700 10 6v2H7.500v3.500H10V22h4V11.500h2.800L17.300 8z"/>'),SS:SV('<path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>'),BL:SV('<rect x="2" y="2" width="20" height="20" rx="6"/><rect x="7" y="8" width="7" height="2.5" rx="1.25" fill="#0d0e15"/><rect x="7" y="13.5" width="10" height="2.5" rx="1.25" fill="#0d0e15"/>'),PI:SV('<path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>'),"@":SV('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',L)};
 const icons=(el,a)=>{el.className="icons";el.innerHTML=a.map(([n,h,u,i])=>`<a class="ic" href="${u}"${u.startsWith("mailto")?"":' target="_blank" rel="noopener"'} aria-label="${n}: ${h}" title="${n}: ${h}">${IC[i]}</a>`).join("")};
-icons($("#g1"),personal);icons($("#g2"),game);
-const PRJ=[["GhostChatBox","Chat Project","https://ghostchatbox.onrender.com"],["Black Vault","Encrypted Storage","https://blackvault.onrender.com"],["GhostNightStories","Web Project","https://ghostnightstories.vercel.app"],["MadeYouSleep","Web Project","https://madeyousleep.vercel.app"]];
-$("#projects").innerHTML=PRJ.map(([n,t,u])=>`<div class="pan"><b>${n}</b><span>${t}</span><a class="btn" href="${u}" target="_blank" rel="noopener" style="margin-top:18px">VIEW PROJECT</a></div>`).join("");
-$("#gm").innerHTML=[["GHOST CTS 4","Code to Survive",U4,"PLAY GHOST CTS 4 ▶"],["GHOST CTS 3","The earlier chapter","https://iamhailstones.github.io/ghostcts3","PLAY GHOST CTS 3 ▶"]].map(([n,t,u,b])=>`<div class="pan"><svg class="lg" role="img" aria-label="${n} logo"><use href="#gl"/></svg><b>${n}</b><span>${t}</span><a class="btn" href="${u}" target="_blank" rel="noopener" style="margin-top:18px">${b}</a></div>`).join("");
-$("#ppl").innerHTML=PRJ.map(([n,t,u])=>`<div class="pr"><b>${n}</b><a class="btn" href="${u}" target="_blank" rel="noopener">VIEW PROJECT</a></div>`).join("");
+const rows=a=>a.map(([n,h,u,i])=>`<a class="row" href="${u}"${u.startsWith("mailto")?"":' target="_blank" rel="noopener"'}><span class="ri">${IC[i]}</span><span class="rn">${n}</span><span class="rh">${h}</span></a>`).join("");
+$("#g1").innerHTML=rows(personal.filter(x=>x[3]!=="@"));$("#g2").innerHTML=rows(game);
+const SI=d=>`<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const ICP={chat:SI('<path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/>'),vault:SI('<rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/><circle cx="12" cy="15" r="1.4"/>'),moon:SI('<path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/><path d="M17 4v3M15.5 5.5h3"/>'),venture:SI('<path d="M3 20h18"/><path d="M6 20v-7M12 20V8M18 20V4"/><path d="M4 9l4-3 4 2 6-5"/>')};
+const PRJ=[["GhostChatbox","AI-powered project","An AI-powered chat application built around conversations with an AI assistant. It is a deployed web project and part of my work in AI integration and conversational interfaces.",["AI integration","Chat interface","Web application","Render"],"https://ghostchatbox.onrender.com","","chat"],["Black Vault","Security-focused web app","A web application for storing files with encryption at its core, built to keep stored files private. It reflects my work on the server side: APIs, storage and security.",["Encryption","File storage","Web application","Render"],"https://blackvault.onrender.com","","vault"],["Ghost Night Stories","Horror entertainment platform","An immersive horror entertainment platform featuring original horror stories, paranormal encounters, interactive storytelling, AI narration, mysterious archives and episodic horror series.",["Original stories","Interactive storytelling","AI narration","Episodic series","Archives","Vercel"],"https://ghostnightstories.vercel.app","Stories Made for Sleepless Nights.","moon"],["VentureSpace","Business platform","A modern business platform where entrepreneurs create business profiles, showcase products and services, discover opportunities, connect with customers, find partners and promote their brands.",["Business profiles","Product showcases","Search and discovery","Networking","Partnerships","Messaging","Analytics dashboard","AI assistance","Marketplace"],"https://venturespace.vercel.app","Where Businesses Become Opportunities.","venture"]];
+const ext=u=>`href="${u}" target="_blank" rel="noopener"`;
+$("#projects").innerHTML=PRJ.map(([n,t,d,c,u,tg,ic])=>`<article class="card"><span class="pi">${ICP[ic]}</span><span class="eb">${t}</span><h3>${n}</h3>${tg?`<p class="tgl">${tg}</p>`:""}<p>${d}</p><div class="chips">${c.map(x=>`<span>${x}</span>`).join("")}</div><a class="lnk" ${ext(u)}>View project <span aria-hidden="true">&rarr;</span></a></article>`).join("");
+$("#gm").innerHTML=[["GHOST CTS 4","Code to Survive","A Python-teaching browser shooter. Learn to code, stay alive.",U4,"Play GHOST CTS 4"],["GHOST CTS 3","The earlier chapter","The earlier chapter of the GHOST CTS series.","https://iamhailstones.github.io/ghostcts3","Play GHOST CTS 3"]].map(([n,t,d,u,b])=>`<article class="card"><svg class="lg" role="img" aria-label="${n} logo"><use href="#gl"/></svg><span class="eb">${t}</span><h3>${n}</h3><p>${d}</p><a class="lnk" ${ext(u)}>${b} <span aria-hidden="true">&rarr;</span></a></article>`).join("");
+$("#ppl").innerHTML=PRJ.map(([n,t,d,c,u])=>`<div class="pr"><b>${n}</b><a class="btn" ${ext(u)}>VIEW PROJECT</a></div>`).join("");
 $(".drips").innerHTML=[6,18,29,41,52,64,75,88].map((l,i)=>`<i style="left:${l}%;--h:${30+(i*37)%55}px;animation-delay:${(i*.7).toFixed(1)}s"></i>`).join("");
 const sec=$("#sec"),pp=$("#pp"),pb=$("#pb");
 const pt2=o=>{pp.classList.toggle("o",o);pb.setAttribute("aria-expanded",o)};
 pb.onclick=()=>pt2(!pp.classList.contains("o"));
 $("#pgo").onclick=()=>{pt2(false);scrollTo({top:sec.offsetTop+$("#prj").offsetTop-30,behavior:reduced?"auto":"smooth"})};
 addEventListener("keydown",e=>{if(e.key==="Escape")pt2(false)});
-const fz=[...document.querySelectorAll("#about,.pn,.dv")];
+const fz=[...document.querySelectorAll(".blk")];
 const fi=()=>{const vh=innerHeight;fz.forEach(e=>{const t=cl((vh*.98-e.getBoundingClientRect().top)/(vh*.55));e.style.opacity=t>=.999?"":t.toFixed(3)})};
 if(!reduced){addEventListener("scroll",fi,{passive:true});addEventListener("resize",fi);addEventListener("load",fi);fi()}
 // ---- renderer ----
