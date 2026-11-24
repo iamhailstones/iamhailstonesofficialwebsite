@@ -291,12 +291,16 @@ select:invalid{color:#d8d8d8}
 
 /* about: image on top, centered and smaller, no scanline overlay */
 .fig.mk{display:flex;flex-direction:column;align-items:center;gap:30px;margin-top:36px}
-.mk .ph{width:min(100%,460px);aspect-ratio:1264/848;margin:0 auto;transform:none;border-radius:16px;box-shadow:0 10px 30px rgba(196,18,42,.3)}
+.mk .ph{width:min(100%,460px);aspect-ratio:1264/848;margin:0 auto;transform:none;border:0;border-radius:16px;box-shadow:none}.mk .ph:hover,.mk .ph:focus,.mk .ph:focus-visible{outline:none;box-shadow:none}
 .mk .ph img{display:block;width:100%;height:100%;object-fit:cover;filter:none}
 .mk .ph:after{content:none;background:none}
 .mk .tg{display:none}
 .fig.mk .ab{max-width:780px;width:100%;margin:0 auto}
 @media(max-width:720px){.mk .ph{width:min(100%,360px)}}
+
+/* Performance refinement: keep the main 3D intro and interaction effects,
+   but make decorative indicators and the About orb static. */
+.hint:after,.oh span,.about-orb .ring-a,.about-orb .ring-b,.about-orb-wire{animation:none!important}
 </style></head><body>
 <header class="top"><a class="brand" href="#" id="brand" aria-label="HAILSTONES, back to intro">HAILSTONES</a>
 <nav class="nav" aria-label="Main"><a href="#about">About</a><a href="#skills">What I offer</a><a href="#prj">Projects</a><a href="#games">Games</a><a href="#testimonials">Testimonials</a><a href="#journey">Journey</a><a href="#find">Contact</a></nav>
@@ -586,7 +590,7 @@ let sq0=-1,lastPh=-1,lastP=-9,fr=0;
 return(t,dt,e,g)=>{let tt;
  if(reduced)tt=e>.3?99:-1;else{if(e>.5&&sq0<0)sq0=t;if(e<.1)sq0=-1;tt=sq0<0?-1:t-sq0}
  if(tt<0){lap.visible=false;lastPh=-1;return}
- lap.visible=true;const sc=Math.min(1,cam.aspect*.7);lap.scale.setScalar(sc);lap.position.set(hw.x,hw.y+.07+(reduced?0:Math.sin(t*1.3)*.004),hw.z+.02);
+ lap.visible=true;const sc=Math.min(1,cam.aspect*.7)*(mobile?1.4:1);lap.scale.setScalar(sc);lap.position.set(hw.x,hw.y+.07+(reduced?0:Math.sin(t*1.3)*.004),hw.z+.02);
  const s1=cl(tt/S1);clip.constant=lap.position.y+(tt>=S1+.3?9:TOP*cl((s1-.38)/.62)*1.02*sc);
  if(tt<S1+.6){pts.visible=true;
   for(let i=0;i<NP;i++){const a=PH[i]*.62,j=i*3;let x,y,z,b;
@@ -618,10 +622,10 @@ const rg=new T.BufferGeometry();rg.setAttribute("position",new T.BufferAttribute
 const rain=new T.LineSegments(rg,new T.LineBasicMaterial({color:0xbbbbbb,transparent:true,opacity:.35}));cam.add(rain);
 
 // input and scroll
-let mx=0,my=0,p=0,ps=0,sH=1;
+let mx=0,my=0,p=0,ps=0,sH=1,frameId=null,loopReady=false;
 addEventListener("pointermove",e=>{mx=e.clientX/innerWidth*2-1;my=-(e.clientY/innerHeight*2-1)},{passive:true});
 const stage=$("#stage");
-const onScroll=()=>{sH=Math.max(1,stage.offsetHeight-innerHeight);p=cl(scrollY/sH)*.84};
+const onScroll=()=>{sH=Math.max(1,stage.offsetHeight-innerHeight);p=cl(scrollY/sH)*.84;if(loopReady&&scrollY<=stage.offsetHeight&&!document.hidden&&frameId===null)frameId=requestAnimationFrame(loop)};
 addEventListener("scroll",onScroll,{passive:true});
 const size=()=>{R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();onScroll()};
 addEventListener("resize",size);size();
@@ -632,8 +636,8 @@ const A=new T.Vector3(.15,1.58,.95),PB=new T.Vector3(0,1.3,3.4),hw=new T.Vector3
 const k=[$("#k0"),$("#k1")],hint=$("#hint"),oh=$("#oh");
 const bump=(a,b,c,d)=>sm(a,b,ps)*(1-sm(c,d,ps));
 let ob0=-1,nb=2,bt=-9,lbn=1.5,lbt=-9,last=performance.now(),acc=0,fr=0;
-function loop(now){requestAnimationFrame(loop);const dt=Math.min(.05,(now-last)/1000);last=now;const t=now/1000;
-if(scrollY>stage.offsetHeight)return; // intro is fully covered by the page: stop drawing
+function loop(now){frameId=null;const dt=Math.min(.05,(now-last)/1000);last=now;const t=now/1000;
+if(scrollY>stage.offsetHeight||document.hidden)return; // stop rendering when the intro is covered or the tab is hidden
 acc+=dt;fr++;if(acc>2.5){if(fr/acc<28&&pr>1){pr=1;R.setPixelRatio(1);size()}acc=0;fr=0}
 ps+=(p-ps)*(reduced?1:.08);
 const a=sm(0,.14,ps),b=sm(.14,.3,ps),c=sm(.3,.5,ps),d=sm(.48,.58,ps),e=sm(.56,.66,ps),f=sm(.62,.8,ps),g=sm(.7,.82,ps);
@@ -650,8 +654,9 @@ cp.lerpVectors(A,PB,b);lk0.set(0,lerp(1.55,1.15,b),0);cp.x=lerp(cp.x,.35,f);cp.y
 cam.position.set(cp.x+mx*.2,cp.y+my*.1,cp.z);cam.lookAt(lk);
 const rpa=rg.attributes.position.array;for(let i=0;i<N;i++){const j=i*6;rpa[j+1]-=dt*14;rpa[j]+=dt*1.2;if(rpa[j+1]<-7)seed(i);else{rpa[j+4]=rpa[j+1]-.5;rpa[j+3]=rpa[j]+.05}}rg.attributes.position.needsUpdate=true;
 k[0].style.opacity=1-sm(.04,.13,ps);hint.style.opacity=1-sm(.02,.07,ps);oh.style.opacity=sm(.66,.7,ps).toFixed(2);k[1].style.opacity=bump(.16,.22,.3,.38);
-R.render(scene,cam)}
-requestAnimationFrame(loop);
-addEventListener("pagehide",()=>R.dispose());
+R.render(scene,cam);if(scrollY<=stage.offsetHeight&&!document.hidden)frameId=requestAnimationFrame(loop)}
+loopReady=true;frameId=requestAnimationFrame(loop);
+document.addEventListener("visibilitychange",()=>{if(document.hidden){if(frameId!==null)cancelAnimationFrame(frameId);frameId=null}else if(scrollY<=stage.offsetHeight&&frameId===null){last=performance.now();frameId=requestAnimationFrame(loop)}});
+addEventListener("pagehide",()=>{if(frameId!==null)cancelAnimationFrame(frameId);R.dispose()});
 })();
 </script></body></html>
