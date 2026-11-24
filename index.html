@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=League+Spartan:wght@700&family=Montserrat:wght@600;800&family=Rajdhani:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#000;--bgr:0,0,0;--panel:#000;--card:#0b0b0d;--line:#2a2a30;--tx:#f2f4fa;--mu:#aab4cc;--red:#e0243f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{--bg:#000;--bgr:0,0,0;--panel:#000;--card:#000;--line:#4a4a4a;--tx:#fff;--mu:#fff;--red:#c4122a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--tx);font:500 16px/1.5 Inter,system-ui,sans-serif}
@@ -32,7 +32,7 @@ h1{font-size:min(10.5vw,150px);color:#d8d4da;text-shadow:0 0 30px #7a0012}
 .oh span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:10px}
 @keyframes blk{0%,100%{opacity:1}50%{opacity:.25}}
 button,.btn{font:inherit;cursor:pointer}
-.pr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid #ffffff1a;border-radius:10px;background:#0d0e15;margin-bottom:8px}
+.pr{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border:1px solid #ffffff1a;border-radius:10px;background:#000;margin-bottom:8px}
 .pr b{font:700 15px "League Spartan",Inter,sans-serif;letter-spacing:.04em}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:8px;border:1px solid #ff4a63;color:#fff;background:linear-gradient(#d0152e,#8f0c1f);text-decoration:none;letter-spacing:.1em;font:700 13px Inter,sans-serif}
 .pr .btn{min-height:38px;padding:0 14px;font-size:11px}
@@ -51,7 +51,7 @@ h3{margin:0}
 .what b{display:block;font:700 16px Inter,sans-serif;color:var(--tx);margin-bottom:4px}
 .fig{margin:28px 0 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#000}
 .fig img{display:block;width:100%;height:auto}
-.fig figcaption{padding:12px 16px;font:500 13px Inter,sans-serif;color:#aab4cc;background:#0a1020}
+.fig figcaption{padding:12px 16px;font:500 13px Inter,sans-serif;color:#aab4cc;background:#000}
 .sk{display:grid;grid-template-columns:200px 1fr;gap:12px 30px;padding:16px 0;border-top:1px solid var(--line)}
 .sk h3{font:700 15px Inter,sans-serif;margin-top:6px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -59,7 +59,7 @@ h3{margin:0}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin:6px 0 30px}
 .tiles figure{margin:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#000}
 .tiles img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
-.tiles figcaption{padding:8px 10px;font:700 13px Inter,sans-serif;color:#f2f4fa;background:#0a1020;text-align:center}
+.tiles figcaption{padding:8px 10px;font:700 13px Inter,sans-serif;color:#f2f4fa;background:#000;text-align:center}
 .g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
 .card{display:flex;flex-direction:column;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
 .card h3{font:700 22px Montserrat,Inter,sans-serif;letter-spacing:-.01em;margin:0 0 10px;color:var(--tx)}
@@ -262,6 +262,41 @@ input:focus,textarea:focus,select:focus{border-color:var(--red);box-shadow:0 0 0
 @media(max-width:720px){.fig.mk{grid-template-columns:1fr}.mk .ph{max-width:300px;margin:0 auto;position:relative;top:0}}
 @media(prefers-reduced-motion:reduce){.mk .tg:before{animation:none}.mk .ph{transition:none}}
 .fig.mk{grid-template-columns:1fr}.mk .ph{aspect-ratio:1264/848;position:static;transform:none;max-width:none;margin:0}.mk .ph:hover{transform:none}.mk .ph img{object-position:50% 50%}.ab{max-width:780px}
+
+/* ===== black theme: white text, deep red icons ===== */
+body,.blk,.card,.slide,.tcard,.what li,.tl li,.soc,.pr,.fig figcaption,.tiles figcaption,.tiles figure,.fig{background-color:#000}
+body{color:#fff}
+.blk p,.ab p,.what li,.tl li,.slide .st p,.tcard .tc p,.chips span,.who span,.tm,.ft,.ab .sig span,.row .rh,.sk,.lead,.eb,label,.sub,.hint,.nav a,.fig figcaption,.tiles figcaption{color:#fff}
+.blk p{font-size:17.5px}
+.ab p{font-size:17px;line-height:1.8}
+h1{color:#fff;text-shadow:0 0 28px #8f0c1f}
+.blk,.card,.slide,.tcard,.what li,.tl li,.chips span,.soc,.pr{border-color:#4a4a4a}
+.chips span{background:#000;border-color:#5a5a5a}
+::placeholder{color:#cfcfcf;opacity:1}
+select:invalid{color:#d8d8d8}
+
+/* contact: black, white text, deep red accents */
+#find.blk{background:#000;border-color:#5a5a5a}
+#find .lead,#find .social-title,#find .soc h4,#find .ft,#find label{color:#fff}
+#find input,#find textarea,#find select{background:#000;border:1px solid #7a7a7a;color:#fff}
+#find input:focus,#find textarea:focus,#find select:focus{border-color:#c4122a;box-shadow:0 0 0 3px #c4122a66}
+#find .soc{border-color:#4a4a4a}
+#find .ic,.ic{background:#000;border:1px solid #c4122a;color:#c4122a}
+#find .ic:hover,#find .ic:focus-visible,.ic:hover,.ic:focus-visible{background:#c4122a;color:#fff}
+#form .lnk,#form .lnk.wa{background:#000;border:1px solid #c4122a;color:#fff}
+#form .lnk:hover,#form .lnk:focus-visible,#form .lnk:active{background:#c4122a}
+.skill-category-icon{background:#000;color:#c4122a;border-color:#c4122a}
+.row i{color:#c4122a;border-color:#c4122a}
+.ml a:hover,.ml a:focus-visible,.ml a.on{background:#1a0000}
+
+/* about: image on top, centered and smaller, no scanline overlay */
+.fig.mk{display:flex;flex-direction:column;align-items:center;gap:30px;margin-top:36px}
+.mk .ph{width:min(100%,460px);aspect-ratio:1264/848;margin:0 auto;transform:none;border-radius:16px;box-shadow:0 10px 30px rgba(196,18,42,.3)}
+.mk .ph img{display:block;width:100%;height:100%;object-fit:cover;filter:none}
+.mk .ph:after{content:none;background:none}
+.mk .tg{display:none}
+.fig.mk .ab{max-width:780px;width:100%;margin:0 auto}
+@media(max-width:720px){.mk .ph{width:min(100%,360px)}}
 </style></head><body>
 <header class="top"><a class="brand" href="#" id="brand" aria-label="HAILSTONES, back to intro">HAILSTONES</a>
 <nav class="nav" aria-label="Main"><a href="#about">About</a><a href="#skills">What I offer</a><a href="#prj">Projects</a><a href="#games">Games</a><a href="#testimonials">Testimonials</a><a href="#journey">Journey</a><a href="#find">Contact</a></nav>
@@ -580,7 +615,7 @@ const N=reduced?150:mobile?450:1200,rp=new Float32Array(N*6);
 const seed=i=>{const x=(Math.random()-.5)*16,y=Math.random()*14-7,z=1-Math.random()*14;rp.set([x,y,z,x+.05,y-.5,z],i*6)};
 for(let i=0;i<N;i++)seed(i);
 const rg=new T.BufferGeometry();rg.setAttribute("position",new T.BufferAttribute(rp,3));
-const rain=new T.LineSegments(rg,new T.LineBasicMaterial({color:0x7d9bd0,transparent:true,opacity:.35}));cam.add(rain);
+const rain=new T.LineSegments(rg,new T.LineBasicMaterial({color:0xbbbbbb,transparent:true,opacity:.35}));cam.add(rain);
 
 // input and scroll
 let mx=0,my=0,p=0,ps=0,sH=1;
